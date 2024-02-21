@@ -1,69 +1,21 @@
 package lesson20240219.house;
 
-public class Cat {
-
-    private String name;
-
-    protected String colour;
-
-    private int age;
-
-    private boolean isHungry;
-
+public class Cat extends Animal {
 
     public Cat(String catName){
-        this(catName, "white", 1, true);
+        this(catName, "white", 1);
     }
 
     public Cat(String catName, String catColour, int catAge){
-        this(catName, catColour, catAge, true);
-    }
-
-    private Cat(String catName, String catColour, int catAge, boolean isHungry){
-        this.isHungry = isHungry;
-        name = catName;
-        colour = catColour;
-        age = catAge;
+        super(catName, catColour, catAge);
     }
 
     public void sayHello(){
-        System.out.println("Meow! I'm " + name);
+        System.out.println("Meow! I'm cat. My name is " + super.getName());
     }
 
-    public void feed(){
-        isHungry = false;
-        System.out.println("Cat " + name + " is not hungry anymore");
+    public void meow() {
+        System.out.println("Meow!");
     }
 
-    public int getAge(){
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
-
-    public boolean isHungry() {
-        return isHungry;
-    }
-
-    public void setHungry(boolean hungry) {
-        isHungry = hungry;
-    }
 }

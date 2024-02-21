@@ -8,20 +8,36 @@ public class House {
         cat1.sayHello();
         cat2.sayHello();
 
-        System.out.println(cat1.isHungry());
-        cat1.feed();
-        System.out.println(cat1.isHungry());
+//        System.out.println(cat1.isHungry());
+//        cat1.feed();
+//        System.out.println(cat1.isHungry());
 
-        Robot.printTotalRobotCount();
+//        Robot.printTotalRobotCount();
+//
+//        Robot robot1 = new Robot("Valuum cleaner", "Robot cleaner");
+//        Robot robot2 = new Robot("Washing mashine", "Robot to wash something");
+//        robot1.printCurrentRobotInfo();
+//        robot2.printCurrentRobotInfo();
+//
+////        robot1.printTotalRobotCount();
+////        robot2.printTotalRobotCount();
+//        Robot.printTotalRobotCount();
 
-        Robot robot1 = new Robot("Valuum cleaner", "Robot cleaner");
-        Robot robot2 = new Robot("Washing mashine", "Robot to wash something");
-        robot1.printCurrentRobotInfo();
-        robot2.printCurrentRobotInfo();
+        Dog dog = new Dog("Jack", "grey", 1);
+        dog.bark();
+        dog.sayHello();
+//        dog.feed();
 
-//        robot1.printTotalRobotCount();
-//        robot2.printTotalRobotCount();
-        Robot.printTotalRobotCount();
+        Animal animal = dog;
+        animal.displayAnimalInfo();
+        animal = cat1;
+        animal.displayAnimalInfo();
+
+//        Animal animal = new Animal("Jack", "grey", 1);
+
+        Human human = new Human("Harry");
+//        human.feedAnimal(dog);
+        human.feedAnimal(dog, cat1, cat2);
     }
 
 
