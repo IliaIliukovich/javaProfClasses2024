@@ -18,4 +18,13 @@ public class Cat extends Animal {
         System.out.println("Meow!");
     }
 
+    @Override
+    public void play(Creature another) {
+        if (another instanceof Dog) {
+            System.out.println("Cat " + getName() + " runs away from dog " + another.getName());
+        } else {
+            super.play(another);
+        }
+    }
+
 }

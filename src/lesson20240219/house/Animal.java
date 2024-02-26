@@ -2,16 +2,13 @@ package lesson20240219.house;
 
 public abstract class Animal extends Creature{
 
-    private String name;
-
     private String colour;
 
     private int age;
-
     private boolean isHungry;
 
     public Animal(String name, String colour, int age) {
-        this.name = name;
+        super(name);
         this.colour = colour;
         this.age = age;
         this.isHungry = true;
@@ -19,24 +16,14 @@ public abstract class Animal extends Creature{
 
     public void feed(){
         isHungry = false;
-        System.out.println("Animal " + name + " is not hungry anymore");
+        System.out.println("Animal " + getName() + " is not hungry anymore");
     }
-
-    public abstract void sayHello();
 
     public void displayAnimalInfo(){
         System.out.println("Animal info:");
-        System.out.println(name + ", colour: " + colour + ", age: " + age + ", isHungry: " + isHungry);
+        System.out.println(getName() + ", colour: " + colour + ", age: " + age + ", isHungry: " + isHungry);
         sayHello();
         System.out.println("--------------");
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getColour() {

@@ -14,7 +14,7 @@ public class House {
 
 //        Robot.printTotalRobotCount();
 //
-//        Robot robot1 = new Robot("Valuum cleaner", "Robot cleaner");
+        Robot robot1 = new Robot("Valuum cleaner", "Robot cleaner");
 //        Robot robot2 = new Robot("Washing mashine", "Robot to wash something");
 //        robot1.printCurrentRobotInfo();
 //        robot2.printCurrentRobotInfo();
@@ -38,6 +38,19 @@ public class House {
         Human human = new Human("Harry");
 //        human.feedAnimal(dog);
         human.feedAnimal(dog, cat1, cat2);
+
+        human.walk(dog);
+        human.walk(cat1);
+
+        human.play(dog);
+        dog.play(robot1);
+
+        dog.play(cat1);
+        cat1.play(dog);
+
+        Cat blackCat = new BlackCat("Black cat", 1);
+        blackCat.play(dog);
+        dog.play(blackCat);
     }
 
 

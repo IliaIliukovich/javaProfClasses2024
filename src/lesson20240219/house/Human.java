@@ -1,11 +1,11 @@
 package lesson20240219.house;
 
-public class Human {
+public class Human extends Creature {
 
     private String name;
 
     public Human(String name) {
-        this.name = name;
+        super(name);
     }
 
     public void feedAnimal(Animal animal) {
@@ -18,5 +18,13 @@ public class Human {
         }
     }
 
+    @Override
+    public void sayHello() {
+        System.out.println("Hello! I'm human. My name is" + name);
+    }
 
+    public void walk(Animal animal) {
+        System.out.println("Human " + getName() + " walks with " + animal.getName());
+        animal.setHungry(true);
+    }
 }

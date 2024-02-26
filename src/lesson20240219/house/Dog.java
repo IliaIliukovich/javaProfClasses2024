@@ -15,5 +15,14 @@ public class Dog extends Animal {
         System.out.println("Gav! Gav!");
     }
 
+    @Override
+    public void play(Creature another) {
+        if (another instanceof Cat) {
+            bark();
+        } else {
+            super.play(another);
+        }
+    }
+
 
 }
