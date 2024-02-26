@@ -2,8 +2,6 @@ package lesson20240219.house;
 
 public class Human extends Creature {
 
-    private String name;
-
     public Human(String name) {
         super(name);
     }
@@ -20,7 +18,7 @@ public class Human extends Creature {
 
     @Override
     public void sayHello() {
-        System.out.println("Hello! I'm human. My name is" + name);
+        System.out.println("Hello! I'm human. My name is" + getName());
     }
 
     public void walk(Animal animal) {
