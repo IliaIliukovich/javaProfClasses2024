@@ -1,4 +1,4 @@
-package summary20240223.superherobattle;
+package summary20240223.superherobattle.items;
 
 import java.util.Random;
 

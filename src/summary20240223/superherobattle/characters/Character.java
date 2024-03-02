@@ -1,4 +1,4 @@
-package summary20240223.superherobattle;
+package summary20240223.superherobattle.characters;
 
 public abstract class Character {
 
@@ -18,7 +18,7 @@ public abstract class Character {
 
     public abstract int countProtection();
 
-    public void fight(Character another){
+    public final void fight(Character another){
         System.out.println(this.getName() + " fights with " + another.getName());
         int myForce = countForce();
         int anotherForce = another.countForce();

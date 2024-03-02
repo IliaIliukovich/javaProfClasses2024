@@ -1,6 +1,8 @@
-package summary20240223.superherobattle;
+package summary20240223.superherobattle.characters;
 
-import java.util.Random;
+import summary20240223.superherobattle.characters.Character;
+import summary20240223.superherobattle.items.Protection;
+import summary20240223.superherobattle.items.Weapon;
 
 public class Superhero extends Character {
 
