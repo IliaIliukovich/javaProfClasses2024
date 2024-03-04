@@ -24,38 +24,6 @@ public class Box implements Cloneable {
         this.cat = cat;
     }
 
-    public String getItem() {
-        return item;
-    }
-
-    public void setItem(String item) {
-        this.item = item;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public boolean isCanBeSold() {
-        return canBeSold;
-    }
-
-    public void setCanBeSold(boolean canBeSold) {
-        this.canBeSold = canBeSold;
-    }
-
-    public Cat getCat() {
-        return cat;
-    }
-
-    public void setCat(Cat cat) {
-        this.cat = cat;
-    }
-
     @Override
     public String toString() {
         return "Box{" +
@@ -72,17 +40,35 @@ public class Box implements Cloneable {
         canBeSold = false;
     }
 
+    public Box shallowCopy() {
+        return new Box(item, count, canBeSold, cat);
+    }
+
     public Box deepCopy() {
         Cat newCat = new Cat(cat.getName(), cat.getColour(), cat.getAge());
         return new Box(item, count, canBeSold, newCat);
     }
 
-    public Box shallowCopy() {
-        return new Box(item, count, canBeSold, cat);
-    }
-
     @Override
     public Box clone() throws CloneNotSupportedException {
-        return (Box) super.clone();
+        Box cloned = (Box) super.clone();
+        cloned.cat = cat.clone();
+        return cloned;
+    }
+
+    public String getItem() {
+        return item;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
+    }
+
+    public Cat getCat() {
+        return cat;
+    }
+
+    public void setCat(Cat cat) {
+        this.cat = cat;
     }
 }
