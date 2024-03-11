@@ -18,25 +18,25 @@ public class IteratorExample {
 //            System.out.println(element);
 //        }
 
-//        Iterator<String> iterator = list.iterator();
-//        String next = iterator.next();
-//        System.out.println(next);
-//        next = iterator.next();
-//        System.out.println(next);
-//        iterator.next();
-//        iterator.next();
-//        iterator.next();
-//        System.out.println(iterator.hasNext());
-//        if (iterator.hasNext()) {
-//            iterator.next();
-//        }
-
-
         Iterator<String> iterator = list.iterator();
-//        while (iterator.hasNext()) {
-//            String next = iterator.next();
-//            System.out.println(next);
-//        }
+        String next = iterator.next();
+        System.out.println(next);
+        next = iterator.next();
+        System.out.println(next);
+        iterator.next();
+        iterator.next();
+        iterator.next();
+        System.out.println(iterator.hasNext());
+        if (iterator.hasNext()) {
+            iterator.next();
+        }
+
+
+        iterator = list.iterator();
+        while (iterator.hasNext()) {
+            next = iterator.next();
+            System.out.println(next);
+        }
 
         iterator = list.iterator();
         Iterator<String> secondIterator = list.iterator();
@@ -46,7 +46,6 @@ public class IteratorExample {
         iterator.next();
         iterator.next();
         secondIterator.next();
-
         System.out.println(iterator.next());
         System.out.println(secondIterator.next());
 
@@ -72,8 +71,6 @@ public class IteratorExample {
             }
         }
         System.out.println(list);
-
-
     }
 
 
