@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class ReverseArray {
 
+    // Напишите метод, который меняет местами элементы одномерного массива в обратном порядке.
     public static void main(String[] args) {
         // Test 1
         int[] data = {1, 2, 3, 4, 5};
