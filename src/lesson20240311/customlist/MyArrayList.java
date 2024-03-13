@@ -21,29 +21,29 @@ public class MyArrayList implements Iterable<String> { // custom static array li
 
     @Override
     public Iterator<String> iterator() {
-        return new MyArrayListIterator();
+        return new Iterator<>() {
+            int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < data.length;
+            }
+
+            @Override
+            public String next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException("No elements present");
+                }
+                return data[currentIndex++];
+            }
+        };
     }
 
     public Iterator<String> reverseIterator() {
         return new MyArrayListReverseIterator();
     }
 
-    public class MyArrayListIterator implements Iterator<String>{
-        int currentIndex = 0;
 
-        @Override
-        public boolean hasNext() {
-            return currentIndex < data.length;
-        }
-
-        @Override
-        public String next() {
-            if (!hasNext()) {
-                throw new NoSuchElementException("No elements present");
-            }
-            return data[currentIndex++];
-        }
-    }
 
     public class MyArrayListReverseIterator implements Iterator<String>{
         int currentIndex = data.length - 1;
