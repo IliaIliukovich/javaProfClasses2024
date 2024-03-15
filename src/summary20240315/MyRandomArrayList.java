@@ -2,11 +2,11 @@ package summary20240315;
 
 import java.util.*;
 
-public class MyArrayList implements Iterable<String> {
+public class MyRandomArrayList implements Iterable<String> {
 
     private String[] data;
 
-    public MyArrayList(String[] data) {
+    public MyRandomArrayList(String[] data) {
         this.data = data;
     }
 
@@ -56,7 +56,7 @@ public class MyArrayList implements Iterable<String> {
 
     public static void main(String[] args) {
         String[] data = new String[]{"A", "B", "C", "D", "E"};
-        MyArrayList myArrayList = new MyArrayList(data);
+        MyRandomArrayList myArrayList = new MyRandomArrayList(data);
 
         Iterator<String> iterator1 = myArrayList.iterator();
         Iterator<String> iterator2 = myArrayList.iterator();
