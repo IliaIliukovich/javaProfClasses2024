@@ -73,6 +73,12 @@ public class MyRandomArrayList implements Iterable<String> {
 
         iterator1 = null;
         iterator2 = null;
+
+        Iterable<String> list = new MyRandomArrayList(data);
+        for (String element : list) {
+
+        }
+
     }
 
 }
