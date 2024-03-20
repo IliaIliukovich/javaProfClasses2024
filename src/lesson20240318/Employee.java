@@ -73,6 +73,20 @@ public class Employee implements Comparable<Employee> {
             System.out.println(e);
         }
 
+        // сортировка по рабочим часам и возрасту в обратном порядке
+        System.out.println("Natural Sort by hours, age, reverse order:");
+        employees.sort(new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                int result = o2.workingHoursInMonth - o1.workingHoursInMonth;
+                if (result == 0) result = o2.age - o1.age;
+                return result;
+            }
+        });
+        for (Employee e : employees){
+            System.out.println(e);
+        }
+
     }
 
     @Override
