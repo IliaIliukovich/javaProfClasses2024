@@ -13,7 +13,7 @@ public class Bank {
         System.out.println(masterCard.compareTo(visa));
         System.out.println(visa.compareTo(masterCard));
 
-        // should be simmetric
+        // compareTo() should be symmetric
         Card card = visa;
         System.out.println(masterCard.compareTo(card));
         System.out.println(card.compareTo(masterCard));
