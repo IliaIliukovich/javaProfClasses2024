@@ -76,6 +76,6 @@ public class Point implements Comparable<Point>{
 
         System.out.println(hashSet);
 
-        // compareTo() must consistent with equals(), hashCode()
+        // compareTo() must be consistent with equals(), hashCode()
     }
 }
