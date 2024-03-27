@@ -1,9 +1,6 @@
 package lesson20240327.map;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Pizza {
     private String name;
@@ -52,10 +49,21 @@ public class Pizza {
 
 
 //   c. Получить Map<String, Set<String>> повар / список имен пиц, приготовленных этим поваром
+        Map<String, Set<String>> pizzaNameByCook = new HashMap<>();
+        for (Pizza pizza : pizzas) {
+            String cook = pizza.cookName;
+            if (pizzaNameByCook.containsKey(cook)) {
+                Set<String> pizzaSet = pizzaNameByCook.get(cook);
+                pizzaSet.add(pizza.name);
+            } else {
+                Set<String> pizzaSet = new HashSet<>();
+                pizzaSet.add(pizza.name);
+                pizzaNameByCook.put(cook, pizzaSet);
+            }
+        }
+        System.out.println(pizzaNameByCook);
 
-
-
-
-
+        Set<String> ivanPizzas = pizzaNameByCook.get("Ivan");
+        Set<String> jamesPizzas = pizzaNameByCook.get("James");
     }
 }
