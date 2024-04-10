@@ -27,12 +27,12 @@ public class StandardFunctionalInterfaces {
         printData.accept("Data to consumer 1");
         printData.accept("Data to consumer 2");
 
-        // data -> boolean --- Predicate
+        // data -> boolean --- Predicate --- test()
         Predicate<String> isLongEnough = (s) -> s.length() > 3;
         System.out.println(isLongEnough.test("Test string"));
         System.out.println(isLongEnough.test("abc"));
 
-        // (data1, data2) -> data3 --- BiFunction --- BinaryOperator
+        // (data1, data2) -> data3 --- BiFunction --- BinaryOperator --- apply()
         BinaryOperator<Integer> sum = (int1, int2) -> int1 + int2;
         System.out.println(sum.apply(10, 20));
 
