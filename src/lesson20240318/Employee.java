@@ -16,6 +16,10 @@ public class Employee implements Comparable<Employee> {
         this.workingHoursInMonth = workingHoursInMonth;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
