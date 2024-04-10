@@ -27,25 +27,25 @@ public class FindTicketsInOrder {
         printTicketsInOrder(input);
     }
 
-    public static void printTicketsInOrder(Map<String, String> input) {
+    public static void printTicketsInOrder(Map<String, String> input) { // O(n)
 
         // find the starting point
         Map<String, String> reverseOrder = new HashMap<>();
         Set<Map.Entry<String, String>> entries = input.entrySet();
-        for (Map.Entry<String, String> e : entries) {
+        for (Map.Entry<String, String> e : entries) { // O(n)
             reverseOrder.put(e.getValue(), e.getKey());
         }
         String start = reverseOrder.keySet().iterator().next();
         String first = start;
 
-        while (start != null) {
+        while (start != null) { // O(n)
             first = start;
             start = reverseOrder.get(start);
         }
         System.out.println("Starting point: " + first);
 
         // traverse the route and print
-        while (first != null){
+        while (first != null){ // O(n)
             String value = input.get(first);
             System.out.println(first + " ---> " + value);
             first = value;
