@@ -6,6 +6,11 @@
 «Mumbai» -> «Berlin»
 «Seoul» -> «Mumbai»
 
+«Berlin» <- «London»
+«Tokyo» <- «Seoul»
+«Mumbai» <- «Berlin»
+«Seoul» <- «Mumbai»
+
 Выход:
 Tokyo->Seoul, Seoul->Mumbai, Mumbai->Berlin, Berlin->London
 

@@ -39,11 +39,12 @@ public class TopKTask {
         System.out.println(top);
     }
 
+    // PriorityQueue solution with n elements in PriorityQueue -----> O(n * log (n))
+    // Collections.sort() solution -----> O(n * log (n))
     public static List<Item> topK(List<Item> items, int k) {
 
-        // PriorityQueue solution -----> O(n * log (n))
 
-        Collections.sort(items, new Comparator<Item>() {  // O(n * log n)  -----> min --- O(n)
+        Collections.sort(items, new Comparator<Item>() {
             @Override
             public int compare(Item o1, Item o2) {
                 return o1.price - o2.price;
@@ -57,7 +58,8 @@ public class TopKTask {
         return top;
     }
 
-    public static List<Item> topKWithPriorityQueue(List<Item> items, int k) { // O(n * log k)
+    // PriorityQueue solution with k elements in PriorityQueue -----> O(n * log (k))
+    public static List<Item> topKWithPriorityQueue(List<Item> items, int k) {
         Queue<Item> queue = new PriorityQueue<>(new Comparator<Item>() {
             @Override
             public int compare(Item o1, Item o2) {
