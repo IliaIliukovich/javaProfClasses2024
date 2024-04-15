@@ -44,8 +44,16 @@ public class CompositionExamples {
         //Input:
         //"Some random data"
         //Output:
-        //"Info: SOME RANDOM
+        //"Info: SOME RANDOM"
+        function1 = s -> s.substring(0, 11);
+        function2 = s -> "Info: " + s;
+        function3 = s -> s.toUpperCase();
 
+        Function<String, String> resultFunction = function1.andThen(function3).andThen(function2);
+        System.out.println(resultFunction.apply("Some random data"));
+
+        resultFunction = function2.compose(function3).compose(function1);
+        System.out.println(resultFunction.apply("Some random data"));
     }
 
 
