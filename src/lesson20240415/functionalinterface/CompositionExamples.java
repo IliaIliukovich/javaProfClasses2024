@@ -1,4 +1,4 @@
-package lesson20240415;
+package lesson20240415.functionalinterface;
 
 import java.util.function.Consumer;
 import java.util.function.Function;

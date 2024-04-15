@@ -1,10 +1,10 @@
-package lesson20240415;
+package lesson20240415.functionalinterface;
 
 import lesson20240313.anonymousclass.Playable;
 
 import java.util.function.Consumer;
 
-public class LambdaScoups {
+public class LambdaVsAnonymousScope {
 
     public static void main(String[] args) {
 
