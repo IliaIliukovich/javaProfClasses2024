@@ -111,4 +111,20 @@ public class Employee implements Comparable<Employee> {
         if (result == 0) result = this.workingHoursInMonth - o.workingHoursInMonth;
         return result;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getWorkingHoursInMonth() {
+        return workingHoursInMonth;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
 }
