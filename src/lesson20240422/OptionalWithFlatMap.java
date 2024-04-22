@@ -8,7 +8,7 @@ public class OptionalWithFlatMap {
         Insurance insurance = new Insurance("Insurance");
         Car car = new Car(insurance);
 
-//        String name = car.getInsurance().get().getName().get(); // unsave
+//        String name = car.getInsurance().get().getName().get(); // unsafe
 
         String name = car.getInsurance().flatMap(Insurance::getName).orElse("no insurance");
         System.out.println(name);
