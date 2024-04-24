@@ -23,12 +23,12 @@ public class CollectorExamples {
         System.out.println(namesCount);
 
         // Создать список из экземпляров класса Employee.
-        Employee employee1 = new Employee("Tim", "Smith", 23, 40, true);
-        Employee employee2 = new Employee("Jane", "Smith", 45, 30, false);
-        Employee employee3 = new Employee("Inna", "Smith", 32, 20, true);
-        Employee employee4 = new Employee("Mark", "Smith", 47, 40, false);
-        Employee employee5 = new Employee("John", "Smith", 23, 40, true);
-        Employee employee6 = new Employee("Nina", "Smith", 12, 20, false);
+        Employee employee1 = new Employee("Tim", "Smith", 23, 40, true, "IT");
+        Employee employee2 = new Employee("Jane", "Smith", 45, 30, false, "STOCK");
+        Employee employee3 = new Employee("Inna", "Smith", 32, 20, true, "IT");
+        Employee employee4 = new Employee("Mark", "Smith", 47, 40, false, "ACCOUNTING");
+        Employee employee5 = new Employee("John", "Smith", 23, 40, true, "STOCK");
+        Employee employee6 = new Employee("Nina", "Smith", 12, 20, false, "IT");
         List<Employee> employees = Arrays.asList(employee1, employee2, employee3, employee4, employee5, employee6);
 
         //  С помощью коллекторов:
@@ -52,7 +52,18 @@ public class CollectorExamples {
         System.out.println(isActiveMap);
 
         // Map <Department / список сотрудников>
+        Map<String, List<Employee>> employeesByDepartment = employees.stream().collect(
+                Collectors.groupingBy(Employee::getDepartment, Collectors.mapping(e -> e, Collectors.toList())));
+        System.out.println(employeesByDepartment);
+
         // Map <Department / общая сумма рабочих часов>
+        Map<String, Integer> workingHoursByDepartment = employees.stream().collect(
+                Collectors.groupingBy(Employee::getDepartment, Collectors.summingInt(Employee::getWorkingHoursInMonth)));
+        System.out.println(workingHoursByDepartment);
+
+        String string = employees.stream().map(Employee::getName).collect(Collectors.joining(", "));
+//        string = employees.stream().map(Employee::getName).reduce((s1, s2) -> s1 + ", " + s2).orElse("");
+        System.out.println(string);
 
     }
 

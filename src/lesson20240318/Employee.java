@@ -10,6 +10,8 @@ public class Employee implements Comparable<Employee> {
     private int workingHoursInMonth;
     private boolean isActive;
 
+    private String department;
+
     public Employee(String name, String surname, int age, int workingHoursInMonth, boolean isActive) {
         this.name = name;
         this.surname = surname;
@@ -23,6 +25,15 @@ public class Employee implements Comparable<Employee> {
         this.surname = surname;
         this.age = age;
         this.workingHoursInMonth = workingHoursInMonth;
+    }
+
+    public Employee(String name, String surname, int age, int workingHoursInMonth, boolean isActive, String department) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.workingHoursInMonth = workingHoursInMonth;
+        this.isActive = isActive;
+        this.department = department;
     }
 
     public int getAge() {
@@ -126,5 +137,13 @@ public class Employee implements Comparable<Employee> {
 
     public boolean isActive() {
         return isActive;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }
