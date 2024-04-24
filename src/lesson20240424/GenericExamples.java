@@ -32,6 +32,29 @@ public class GenericExamples {
         Object object = genericClass1.methodWithM(new Object());
         Employee employee = genericClass2.methodWithM(new Employee("Tom", "Smith", 43, 40));
 
+        staticGenericMethod(123);
+        staticGenericMethod("string");
+
+        // o1, o2 ----> list of o1, o2
+        List<Integer> integerList = makeListFromTwoElements(1, 2);
+        System.out.println(integerList);
+        List<String> strings = makeListFromTwoElements("A", "B");
+        System.out.println(strings);
+
+    }
+
+    public static <T> void staticGenericMethod(T t1) {
+        T t2 = null;
+        System.out.println(t1);
+        System.out.println(t2);
+    }
+
+    public static <T> List<T> makeListFromTwoElements(T t1, T t2) {
+//        List<T> list = new ArrayList<>();
+//        list.add(t1);
+//        list.add(t2);
+//        return list;
+        return List.of(t1, t2);
     }
 
 

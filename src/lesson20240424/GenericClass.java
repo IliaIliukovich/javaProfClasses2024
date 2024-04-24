@@ -39,4 +39,9 @@ public class GenericClass <Parameter, M> {
         return m;
     }
 
+    public <Q> void methodWithQ (Q q) {
+        return;
+    }
+
+
 }
