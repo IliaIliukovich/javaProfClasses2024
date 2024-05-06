@@ -1,4 +1,4 @@
-package lesson20240506;
+package lesson20240506.io;
 
 import java.io.*;
 
