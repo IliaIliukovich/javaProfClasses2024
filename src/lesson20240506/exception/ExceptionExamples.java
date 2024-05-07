@@ -23,12 +23,12 @@ public class ExceptionExamples {
             System.out.println(bufferedReader.readLine());
 //            throw new IOException("file is corrupted");
 
-        } catch (FileNotFoundException | NullPointerException expection) {
+        } catch (FileNotFoundException | NullPointerException exception) {
 //            System.out.println("File not found");
 //            System.out.println(expection);
 //            System.out.println(expection.getMessage());
 //            System.out.println(expection.getCause());
-            expection.printStackTrace();
+            exception.printStackTrace();
 //            throw new RuntimeException("RuntimeException");
         } catch (IOException ex) {
             System.out.println("Problem with reading file: " + ex.getMessage());
