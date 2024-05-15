@@ -7,7 +7,7 @@ public class Task {
     public static void main(String[] args) {
 
         // Записать 3 бита '101' в файл, считать их.
-        File file = new File("resources/binaryData");
+        File file = new File("src/main/resources/binaryData");
         try {
             file.createNewFile();
         } catch (IOException e) {

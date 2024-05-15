@@ -6,7 +6,7 @@ public class WriteFileExamples {
 
     public static void main(String[] args) {
 
-        File file = new File("resources/newFile.txt");
+        File file = new File("src/main/resources/newFile.txt");
         try {
             file.createNewFile();
         } catch (IOException e) {

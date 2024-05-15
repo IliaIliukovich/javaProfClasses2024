@@ -5,9 +5,9 @@ import java.io.File;
 public class FileExamples {
 
     public static void main(String[] args) {
-        File file = new File("resources/newFile.txt");
+        File file = new File("src/main/resources/newFile.txt");
 
-        File directory = new File("resources/dir");
+        File directory = new File("src/main/resources/dir");
         directory.mkdir();
         System.out.println(directory.exists());
 

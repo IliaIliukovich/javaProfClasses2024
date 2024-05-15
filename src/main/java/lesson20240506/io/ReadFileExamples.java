@@ -9,7 +9,7 @@ public class ReadFileExamples {
         // try-catch-finally
 //        BufferedReader bufferedReader = null;
 ////        try {
-////            Reader reader = new FileReader("resources/somefile.txt");
+////            Reader reader = new FileReader("src/main/resources/somefile.txt");
 ////            bufferedReader = new BufferedReader(reader);
 ////
 ////            System.out.println(bufferedReader.readLine());
@@ -28,7 +28,7 @@ public class ReadFileExamples {
 
         // try-with-resources
         try (
-            Reader reader2 = new FileReader("resources/somefile.txt");
+            Reader reader2 = new FileReader("src/main/resources/somefile.txt");
             BufferedReader bufferedReader2 = new BufferedReader(reader2);
             ) {
             // read from file

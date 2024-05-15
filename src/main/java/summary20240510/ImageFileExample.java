@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public class ImageFileExample {
-    private static String path = "resources/kitten.png";
+    private static String path = "src/main/resources/kitten.png";
     public static void main(String[] args) throws Exception {
 
         BufferedImage image = ImageIO.read(new File(path));

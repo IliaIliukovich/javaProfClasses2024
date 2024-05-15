@@ -17,7 +17,7 @@ public class ExceptionExamples {
 
         // checked
         try {
-            Reader reader = new FileReader("resources/somefile.txt");
+            Reader reader = new FileReader("src/main/resources/somefile.txt");
             BufferedReader bufferedReader = new BufferedReader(reader);
 
             System.out.println(bufferedReader.readLine());
