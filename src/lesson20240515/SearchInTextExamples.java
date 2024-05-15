@@ -15,6 +15,8 @@ public class SearchInTextExamples {
             String searchResult = matcher.group();
             System.out.println("Word found: " + searchResult + " start: " + matcher.start() + ", end: " + matcher.end());
         }
+//        matcher.results().forEach(matchResult -> System.out.println(matchResult.group()));
+
 
         text = "The dog says meaow. All dogs say meaow!";
         regex = "meaow";
