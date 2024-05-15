@@ -7,27 +7,29 @@ public class RegexExamples {
 
     public static void main(String[] args) {
         String text = "words";
-        String regex = "word.";
+        String regex = "word."; // любой отдельный символ, кроме новой строки
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
         boolean matches = matcher.matches();
         System.out.println(matches);
 
-        System.out.println(Pattern.matches("word\\.", "words"));
-        System.out.println(Pattern.matches("[ws]ords", "words"));
-        System.out.println(Pattern.matches("[ws?]ords", "sords"));
+        System.out.println(Pattern.matches("word\\.", "words")); // точка
+        System.out.println(Pattern.matches("[ws]ords", "words")); // w или s
+        System.out.println(Pattern.matches("[ws?]ords", "sords")); // w или s или ?
         System.out.println(Pattern.matches("[ws?]ords", "?ords"));
-        System.out.println(Pattern.matches("[ws?]ord[a-e]", "wordc"));
+        System.out.println(Pattern.matches("[ws?]ord[a-e]", "wordc")); // от a до e
         System.out.println(Pattern.matches("word[1-2][0-5]", "word16"));
-        System.out.println(Pattern.matches("word[^-?!]", "word&"));
-        System.out.println(Pattern.matches("word[-?!]{3}", "word!!?"));
-        System.out.println(Pattern.matches("word[-?!]?", "word"));
+        System.out.println(Pattern.matches("word[^-?!]", "word&")); // все, кроме - ? !
+
+        System.out.println("Quantifiers - ? * + {}");
+        System.out.println(Pattern.matches("word[-?!]{3}", "word!!?")); // - ? ! трижды
+        System.out.println(Pattern.matches("word[-?!]?", "word")); // один раз или ни разу
         System.out.println(Pattern.matches("word[-?!]?", "word!"));
-        System.out.println(Pattern.matches("word[-?!]*", "word"));
+        System.out.println(Pattern.matches("word[-?!]*", "word")); // ноль или более раз
         System.out.println(Pattern.matches("word[-?!]*", "word!"));
         System.out.println(Pattern.matches("word[-?!]*", "word!!!!!!!"));
-        System.out.println(Pattern.matches("word[-?!]+", "word!"));
+        System.out.println(Pattern.matches("word[-?!]+", "word!")); // один или более раз
         System.out.println(Pattern.matches("word[-?!]+", "word"));
 
         // word words

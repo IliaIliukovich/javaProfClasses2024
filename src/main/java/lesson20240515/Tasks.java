@@ -26,7 +26,7 @@ public class Tasks {
         System.out.println(Pattern.matches(fRegex, "F13"));
 
         // 3) Напишите регулярное выражение, которое соответствует URL-адресу сайта вида https://someaddress.someending
-        System.out.println("Website");
+        System.out.println("---Website---");
         System.out.println(Pattern.matches("https://[a-z]+\\.[a-z]+", "https://someaddress.someending"));
         System.out.println(Pattern.matches("https://[a-z]+\\.[a-z]+", "https://some.address.someending"));
         System.out.println(Pattern.matches("https://[a-z]+\\.[a-z]+", "https://address.some1"));
