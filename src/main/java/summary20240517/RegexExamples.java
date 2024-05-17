@@ -1,5 +1,6 @@
 package summary20240517;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,6 +36,12 @@ public class RegexExamples {
         pattern = Pattern.compile("(\\d{3})(.*)\\1");
         matcher = pattern.matcher(text);
         matcher.results().forEach(matchResult -> System.out.println(matchResult.group() + ", extracted text between: " + matchResult.group(2)));
+
+
+        System.out.println("text".matches(".*"));
+        System.out.println("text".replaceAll("t", "p"));
+        String[] split = "text, one, two, three".split(", ");
+        System.out.println(Arrays.toString(split));
 
     }
 
