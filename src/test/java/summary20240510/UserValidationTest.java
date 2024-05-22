@@ -71,4 +71,10 @@ public class UserValidationTest {
         expected = "<user></user>";
         assertEquals(expected, result);
     }
+
+    @Test
+    public void testCalculate() {
+        int result = userValidation.calculate(5);
+        assertEquals(25, result);
+    }
 }

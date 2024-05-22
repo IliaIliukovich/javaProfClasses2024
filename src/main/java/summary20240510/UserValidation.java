@@ -35,6 +35,10 @@ public class UserValidation {
         return "<user>" + userData + "</user>";
     }
 
+    public int calculate(int i) {
+        return (int) Math.pow(i, 2);
+    }
+
     public String getUserData() {
         return userData;
     }
