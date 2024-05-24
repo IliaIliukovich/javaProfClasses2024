@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static summary20240524.Tasks.findSecondMax;
 
 public class TasksTest {
 
@@ -46,6 +47,18 @@ public class TasksTest {
     }
 
     @Test
-    public void findSecondMax() {
+    void testfindSecondMax() {
+        assertThrows(IllegalArgumentException.class, ()-> findSecondMax(null));
+        int[]array={-10,-11};
+        assertEquals(-11, findSecondMax(array));
+
+        array=new int[]{1,2,3,3};
+        assertEquals(3, findSecondMax(array));
+
+        array=new int[]{1,1,1,1,1,1};
+        assertEquals(1, findSecondMax(array));
+
+
+        assertThrows(IllegalArgumentException.class, ()-> findSecondMax( new int[]{1}));
     }
 }
