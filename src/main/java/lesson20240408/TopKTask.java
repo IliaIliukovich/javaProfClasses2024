@@ -60,6 +60,9 @@ public class TopKTask {
 
     // PriorityQueue solution with k elements in PriorityQueue -----> O(n * log (k))
     public static List<Item> topKWithPriorityQueue(List<Item> items, int k) {
+//        if (items == null || items.isEmpty() || k < 0 || k > items.size() ) throw new IllegalArgumentException("Input data is not valid");
+//        if (items == null || items.isEmpty() || k < 0 || k > items.size() ) return Collections.emptyList();
+
         Queue<Item> queue = new PriorityQueue<>(new Comparator<Item>() {
             @Override
             public int compare(Item o1, Item o2) {

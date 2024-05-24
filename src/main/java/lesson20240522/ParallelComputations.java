@@ -29,7 +29,7 @@ public class ParallelComputations {
         int count = task1.primeCount + task2.primeCount + task3.primeCount;
         long end = System.currentTimeMillis();
         System.out.println("Total numbers of prime: " + count);
-        System.out.println("TIme elapsed: " + (end - start) + ", ms");
+        System.out.println("Time elapsed: " + (end - start) + ", ms");
     }
 
     static class Task implements Runnable {
