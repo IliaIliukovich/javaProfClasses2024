@@ -1,11 +1,12 @@
 package lesson20240527;
 
-public class RaceCondition {
+public class CounterWithSynch {
 
     static int counter = 0;
 
+    static Object mutex = new Object();
+
     public static void main(String[] args) throws InterruptedException {
-//        Thread.currentThread().stop();
 
         Task task = new Task();
         Thread thread1 = new Thread(task);
@@ -21,13 +22,13 @@ public class RaceCondition {
 
         @Override
         public void run() {
+            // some actions
             for (int i = 0; i < 10; i++) {
-                counter++;
-                // tmp = counter
-                // tmp++
-                // counter = tmp
+                synchronized (mutex) {
+                    counter++;
+                    System.out.println(Thread.currentThread().getName() + " : " + counter);
+                }
 
-                System.out.println(Thread.currentThread().getName() + " : " + counter);
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
@@ -36,7 +37,6 @@ public class RaceCondition {
             }
         }
     }
-
 
 
 }
