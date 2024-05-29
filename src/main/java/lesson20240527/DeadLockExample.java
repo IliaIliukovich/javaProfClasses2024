@@ -1,6 +1,6 @@
 package lesson20240527;
 
-public class SyncProblem {
+public class DeadLockExample {
 
     static Object food = new Object();
     static Object milk = new Object();
