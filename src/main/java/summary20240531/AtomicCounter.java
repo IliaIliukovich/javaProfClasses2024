@@ -14,8 +14,9 @@ public class AtomicCounter {
         atomicReference.getAndSet("new value");
 
         new Thread(() -> {
+            // реализация логики counter.incrementAndGet();
             for (int i = 0; i < 10; i++) {
-                boolean success = false;
+                boolean success;
                 do {
                     int currenValue = counter.get();
                     int old = currenValue;
@@ -25,7 +26,6 @@ public class AtomicCounter {
                     if (!success) System.out.println("!!!");
                 } while (!success);
 
-//                counter.incrementAndGet();
 
                 try {
                     Thread.sleep(2000);
@@ -37,8 +37,8 @@ public class AtomicCounter {
 
         new Thread(() -> {
             for (int i = 0; i < 10; i++) {
-                System.out.println(counter.incrementAndGet());
                 // ++counter;
+                System.out.println(counter.incrementAndGet());
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
