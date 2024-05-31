@@ -8,14 +8,16 @@ public class AtomicCounter {
     static AtomicInteger counter = new AtomicInteger(0);
 
     public static void main(String[] args) throws InterruptedException {
+        // AtomicReference example
         String data = "string data";
         AtomicReference<String> atomicReference = new AtomicReference<>(data);
         String dataFromAtomic = atomicReference.get();
         atomicReference.getAndSet("new value");
 
+        // AtomicInteger example
         new Thread(() -> {
-            // реализация логики counter.incrementAndGet();
             for (int i = 0; i < 10; i++) {
+                // реализация логики counter.incrementAndGet();
                 boolean success;
                 do {
                     int currenValue = counter.get();
