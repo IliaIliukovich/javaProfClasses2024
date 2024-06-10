@@ -1,6 +1,8 @@
 package lesson20240610;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class SynchCollectionExamples {
 
@@ -45,6 +47,21 @@ public class SynchCollectionExamples {
         }
 
         System.out.println(synchronizedList);
+
+
+        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>(16, 0.75f, 16);
+        List<String> copyOnWriteList = new CopyOnWriteArrayList<>();
+        copyOnWriteList.add("A");
+        copyOnWriteList.add("B");
+        copyOnWriteList.add("C");
+
+        // thread 1:
+        for (String s : copyOnWriteList) {
+            System.out.println(s);
+        }
+
+        // thread 2:
+        copyOnWriteList.remove(0);
     }
 
 
