@@ -1,4 +1,4 @@
-package lesson20240612.hometask.reflection;
+package lesson20240612.reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -29,7 +29,7 @@ public class DataUser {
 
             System.out.println(data.getPrivateValue());
 
-            Class<?> dataClass2 = Class.forName("lesson20240612.hometask.reflection.Data");
+            Class<?> dataClass2 = Class.forName("lesson20240612.reflection.Data");
 
             @SuppressWarnings(value = "deprecation")
             Data newInstance1 = (Data) dataClass2.newInstance();

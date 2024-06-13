@@ -1,4 +1,4 @@
-package lesson20240612.hometask.reflection;
+package lesson20240612.reflection;
 
 import java.util.*;
 
