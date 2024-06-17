@@ -8,6 +8,8 @@ import java.util.List;
 public class Hometask {
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+        // vm options to make this code execute: --add-opens java.base/java.util=ALL-UNNAMED
+
         List<String> list = new ArrayList<>();
         list.add("A");
 
