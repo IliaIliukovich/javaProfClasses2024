@@ -1,7 +1,9 @@
 package summary20240614.refactoring;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /** The algorithm that counts income for voters in accordance with their prediction.
@@ -19,51 +21,46 @@ public class GainAlgorithm {
     private static final int EXPONENTIAL_QUANTITY = 3;
     private static final int MAX_GOAL_DIFFERENCE = 5;
 
-    public static ArrayList<Bet> getWinningBets(Match match, List<Bet> list) {
-        ArrayList<Bet> resultList = new ArrayList<>();
-        for (Bet bet : list) {
-            if (bet.hasWon(match)) {
-                resultList.add(bet);
-            }
-        }
-        double[] listKoeff = new double[resultList.size()];
-        int goalDifference = match.getGoalDifference();
-        double[] koeff = setKoeff(goalDifference);
+    public static ArrayList<Bet> calucateIncomeForWinningBets(Match match, List<Bet> list) {
+        ArrayList<Bet> winingBets = list.stream().filter(bet -> bet.hasWon(match)).collect(Collectors.toCollection(ArrayList::new));
 
-        // find listKoeff and total sum of listKoeff for normalization
-        double sumKoeff = 0;
-        for (int i = 0; i < resultList.size(); i++) {
-            Bet bet = resultList.get(i);
-            listKoeff[i] = koeff[Math.abs(bet.getCondition()) - 1]*bet.getStake();
-            sumKoeff += listKoeff[i];
-        }
-        int pricepool = getPricePool(match, list);
-        double normKoeff = (double)pricepool/sumKoeff;
+        double[] normCoeffArray = getNormCoeffArray(match.getGoalDifference());
+        double[] normCoeffArrayWithStake = getNormCoeffArrayWithStake(winingBets, normCoeffArray);
+        double sumKoeff = Arrays.stream(normCoeffArrayWithStake).sum();
 
-        // set earned money for the list of bets
-        for (int i = 0; i < resultList.size(); i++) {
-            Bet bet = resultList.get(i);
-            bet.setEarned(bet.getStake() + (int)(normKoeff*listKoeff[i]));
-        }
-        return resultList;
+        int pricePool = caculatePricePool(match, list);
+        double normCoeff = (double) pricePool / sumKoeff;
+
+        setEarnedMoneyForWinningBet(winingBets, normCoeff, normCoeffArrayWithStake);
+        return winingBets;
     }
 
-    private static double[] setKoeff(int goalDifference) {
-        double[] koeff = new double[MAX_GOAL_DIFFERENCE];
+    private static void setEarnedMoneyForWinningBet(ArrayList<Bet> winingBets, double normCoeff, double[] normCoeffArrayWithStake) {
+        for (int i = 0; i < winingBets.size(); i++) {
+            Bet bet = winingBets.get(i);
+            bet.setEarned(bet.getStake() + (int)(normCoeff * normCoeffArrayWithStake[i]));
+        }
+    }
+
+    private static double[] getNormCoeffArrayWithStake(ArrayList<Bet> winingBets, double[] normCoeffArray) {
+        double[] normCoeffArrayWithStake = new double[winingBets.size()];
+        for (int i = 0; i < winingBets.size(); i++) {
+            Bet bet = winingBets.get(i);
+            normCoeffArrayWithStake[i] = normCoeffArray[Math.abs(bet.getCondition()) - 1]*bet.getStake();
+        }
+        return normCoeffArrayWithStake;
+    }
+
+    private static double[] getNormCoeffArray(int goalDifference) {
+        double[] normCoeffArray = new double[MAX_GOAL_DIFFERENCE];
         for (int i = 0; i < MAX_GOAL_DIFFERENCE; i++) {
-            koeff[i] = Math.pow(EXPONENTIAL_QUANTITY, - Math.abs(Math.abs(goalDifference) - i - 1));
+            normCoeffArray[i] = Math.pow(EXPONENTIAL_QUANTITY, - Math.abs(Math.abs(goalDifference) - i - 1));
         }
-        return koeff;
+        return normCoeffArray;
     }
 
-    private static int getPricePool(Match match, List<Bet> list) {
-        int pricepool = 0;
-        for (Bet bet : list) {
-            if (!bet.hasWon(match)){
-                pricepool += bet.getStake();
-            }
-        }
-        return pricepool;
+    private static int caculatePricePool(Match match, List<Bet> list) {
+        return list.stream().filter(bet -> !bet.hasWon(match)).mapToInt(Bet::getStake).sum();
     }
 
 }

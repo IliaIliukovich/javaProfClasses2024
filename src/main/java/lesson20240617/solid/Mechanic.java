@@ -38,8 +38,10 @@ public class Mechanic {
 
         mechanic.service(mercedes);
         mechanic.service(tesla);
+
+        Car newCar = new TeslaNewVersion(); // TeslaNewVersion class violates the Liskov principle
+        newCar.move();
+        mechanic.service(newCar);
     }
-
-
 
 }
