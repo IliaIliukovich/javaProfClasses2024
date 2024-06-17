@@ -21,18 +21,18 @@ public class GainAlgorithm {
     private static final int EXPONENTIAL_QUANTITY = 3;
     private static final int MAX_GOAL_DIFFERENCE = 5;
 
-    public static ArrayList<Bet> calucateIncomeForWinningBets(Match match, List<Bet> list) {
-        ArrayList<Bet> winingBets = list.stream().filter(bet -> bet.hasWon(match)).collect(Collectors.toCollection(ArrayList::new));
+    public static ArrayList<Bet> calculateIncomeForWinningBets(Match match, List<Bet> list) {
+        ArrayList<Bet> winningBets = list.stream().filter(bet -> bet.hasWon(match)).collect(Collectors.toCollection(ArrayList::new));
 
         double[] normCoeffArray = getNormCoeffArray(match.getGoalDifference());
-        double[] normCoeffArrayWithStake = getNormCoeffArrayWithStake(winingBets, normCoeffArray);
-        double sumKoeff = Arrays.stream(normCoeffArrayWithStake).sum();
+        double[] normCoeffArrayWithStake = getNormCoeffArrayWithStake(winningBets, normCoeffArray);
+        double sumCoeff = Arrays.stream(normCoeffArrayWithStake).sum();
 
-        int pricePool = caculatePricePool(match, list);
-        double normCoeff = (double) pricePool / sumKoeff;
+        int pricePool = calculatePricePool(match, list);
+        double normCoeff = (double) pricePool / sumCoeff;
 
-        setEarnedMoneyForWinningBet(winingBets, normCoeff, normCoeffArrayWithStake);
-        return winingBets;
+        setEarnedMoneyForWinningBet(winningBets, normCoeff, normCoeffArrayWithStake);
+        return winningBets;
     }
 
     private static void setEarnedMoneyForWinningBet(ArrayList<Bet> winingBets, double normCoeff, double[] normCoeffArrayWithStake) {
@@ -59,7 +59,7 @@ public class GainAlgorithm {
         return normCoeffArray;
     }
 
-    private static int caculatePricePool(Match match, List<Bet> list) {
+    private static int calculatePricePool(Match match, List<Bet> list) {
         return list.stream().filter(bet -> !bet.hasWon(match)).mapToInt(Bet::getStake).sum();
     }
 

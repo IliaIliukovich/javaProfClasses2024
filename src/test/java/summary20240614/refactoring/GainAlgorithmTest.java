@@ -32,7 +32,7 @@ public class GainAlgorithmTest {
             match.setGoalsA(goalDifference);
             match.setGoalsB(0);
             int winnerMoney = 0;
-            betListResult = GainAlgorithm.calucateIncomeForWinningBets(match, betList);
+            betListResult = GainAlgorithm.calculateIncomeForWinningBets(match, betList);
             for (Bet bet : betListResult) {
                 winnerMoney = bet.getEarned();
                 if (winnerMoney > 0){
@@ -53,7 +53,7 @@ public class GainAlgorithmTest {
             match.setGoalsA(goalDifference);
             match.setGoalsB(0);
             int winnerMoney = 0;
-            betListResult = GainAlgorithm.calucateIncomeForWinningBets(match, betList);
+            betListResult = GainAlgorithm.calculateIncomeForWinningBets(match, betList);
             for (Bet bet : betListResult) {
                 if (hasPredictedCorrectly(goalDifference, bet)) {
                     winnerMoney = bet.getEarned();
@@ -75,7 +75,7 @@ public class GainAlgorithmTest {
             }
             match.setGoalsA(goalDifference);
             match.setGoalsB(0);
-            betListResult = GainAlgorithm.calucateIncomeForWinningBets(match, betList);
+            betListResult = GainAlgorithm.calculateIncomeForWinningBets(match, betList);
             for (Bet bet : betListResult) {
                 assertTrue(bet.hasWon(match));
             }
@@ -97,7 +97,7 @@ public class GainAlgorithmTest {
                     balance += bet.getStake();
                 }
             }
-            betListResult = GainAlgorithm.calucateIncomeForWinningBets(match, betList);
+            betListResult = GainAlgorithm.calculateIncomeForWinningBets(match, betList);
             for (Bet bet : betListResult) {
                 totalgain += bet.getEarned() - bet.getStake();
             }
