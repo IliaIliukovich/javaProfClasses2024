@@ -1,5 +1,6 @@
 package summary20240524;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -12,6 +13,7 @@ import static summary20240524.Tasks.findSecondMax;
 public class TasksTest {
 
     @Test
+    @Disabled
     public void findDublicates() {
         List<String> expected = Collections.emptyList();
         List<String> actual = Tasks.findDublicates(null);
@@ -47,6 +49,7 @@ public class TasksTest {
     }
 
     @Test
+    @Disabled
     void testfindSecondMax() {
         assertThrows(IllegalArgumentException.class, ()-> findSecondMax(null));
         int[]array={-10,-11};

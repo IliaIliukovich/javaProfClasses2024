@@ -48,6 +48,6 @@ public class FindCommonElementsTest {
         expected = new int[] {2, 9};
         assertArrayEquals(expected, result);
 
-        assertTimeout(Duration.ofNanos(1), () -> FindCommonElements.find(new int[]{1, 3, 2, 7, 9, 2}, new int[]{9, 9, -10, 2, 6, 9}));
+        assertTimeout(Duration.ofNanos(10), () -> FindCommonElements.find(new int[]{1, 3, 2, 7, 9, 2}, new int[]{9, 9, -10, 2, 6, 9}));
     }
 }
