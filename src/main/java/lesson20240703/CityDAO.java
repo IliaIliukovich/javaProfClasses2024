@@ -81,4 +81,29 @@ public class CityDAO implements WorldDAO<City, Integer>{
     public void update(Integer integer) {
 
     }
+
+    public void saveSpecialCities() {
+        try (
+                Connection connection = connectorDB.makeConnection();
+                Statement statement = connection.createStatement();
+        ){
+           connection.setAutoCommit(false);
+           statement.execute("INSERT INTO city (city.name, city.population, city.countrycode) VALUES ('SpecialCity1', 1, 'USA')");
+
+            Savepoint savepoint = connection.setSavepoint();
+
+            statement.execute("INSERT INTO city (city.name, city.population, city.countrycode) VALUES ('SpecialCity2', 1, 'USA')");
+
+           try {
+               System.out.println(1 / 0);
+           } catch (ArithmeticException e) {
+                connection.rollback(savepoint);
+           }
+           connection.commit();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

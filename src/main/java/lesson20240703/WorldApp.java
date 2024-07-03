@@ -13,6 +13,8 @@ public class WorldApp {
         City newCity = new City(231431, "Dream City", "USA", 1);
         cityDAO.save(newCity);
 
+//        cityDAO.saveSpecialCities();
+
         List<City> cities = cityDAO.getAll();
         cities.forEach(System.out::println);
     }
