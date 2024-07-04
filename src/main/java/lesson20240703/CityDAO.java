@@ -65,7 +65,7 @@ public class CityDAO implements WorldDAO<City, Integer>{
             preparedStatement.setInt(2, city.getPopulation());
             preparedStatement.setString(3, city.getCountryCode());
             int updated = preparedStatement.executeUpdate();
-            System.out.println("Update sucessfull: " + updated);
+            System.out.println("Update successful: " + updated);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -73,12 +73,12 @@ public class CityDAO implements WorldDAO<City, Integer>{
     }
 
     @Override
-    public void delete(Integer integer) {
+    public void delete(Integer id) { // TODO
 
     }
 
     @Override
-    public void update(Integer integer) {
+    public void update(Integer id) { // TODO
 
     }
 
