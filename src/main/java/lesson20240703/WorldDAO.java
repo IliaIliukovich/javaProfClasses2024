@@ -12,6 +12,6 @@ public interface WorldDAO<T, Id> {
 
     void delete(Id id);
 
-    void update(Id id);
+    void update(T t);
 
 }

@@ -78,7 +78,7 @@ public class CityDAO implements WorldDAO<City, Integer>{
     }
 
     @Override
-    public void update(Integer id) { // TODO
+    public void update(City city) { // TODO
 
     }
 
