@@ -23,7 +23,7 @@ public class LinkedListExample {
         System.out.println(linkedList);
 
 
-        for (int i = 0; i < linkedList.size(); i++) { // bag practice
+        for (int i = 0; i < linkedList.size(); i++) { // bad practice
             System.out.println(linkedList.get(i));
         }
 
